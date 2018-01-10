@@ -1,7 +1,7 @@
 var SerialPort = require("serialport");
 
 var InitSerialPort1 =
-new SerialPort('COM21',
+new SerialPort('COM5',
 {
   baudRate    : 2400, // this is synced to what was set for the Arduino Code
   dataBits    : 7, // this is the default for Arduino serial communication

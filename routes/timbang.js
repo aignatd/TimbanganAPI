@@ -27,6 +27,14 @@ router.post('/timbangan', function(req, res)
   else
   if(Warehouse === "plmr")
   {
+    if(JenisTimbang === 1)
+    {
+      if(global.strResultCom1 === "err" || global.strResultCom1 === "")
+        res.status(fixvalue.Kode.Error).json(fungsi.DataTimbangGagal());
+      else
+        res.status(fixvalue.Kode.OK).json(fungsi.DataTimbangSukses(parseInt(global.strResultCom1.toString(), 10)));
+    }
+    else
     if(JenisTimbang === 2)
     {
       if(global.strResultCom1 === "err" || global.strResultCom1 === "")

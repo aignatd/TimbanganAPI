@@ -32,7 +32,7 @@ app.use('/timbang', timbang);
 app.use('/api/v1', timbang);
 
 // Ignat, 11112017, Open errors will be emitted as an error event
-console.log("Initialize Port 1")
+console.log("Initialize port 1")
 if(serial1conn.isOpen)
 {
   serial1conn.close(function (err)
@@ -40,11 +40,11 @@ if(serial1conn.isOpen)
     if (err)
     {
       global.strResultCom1 = "err";
-      return console.log('Closing port error -> ', err.message);
+      return console.log('Closing port 1 error -> ', err.message);
     }
 
     // Because there's no callback to write, write errors will be emitted on the port:
-    console.log("Closing port Success")
+    console.log("Closing port 1 success")
   });
 }
 
@@ -53,18 +53,18 @@ serial1conn.open(function (err)
   if (err)
   {
     global.strResultCom1 = "err";
-    return console.log('Opening port error -> ', err.message);
+    return console.log('Opening port 1 error -> ', err.message);
   }
 
   // Because there's no callback to write, write errors will be emitted on the port:
-  console.log("Opening port Success")
+  console.log("Opening port 1 success")
 });
 
 var strHasil='';
 
 serial1conn.on('data', function (data)
 {
-  strHasil = strHasil + data.toString().trim();
+  strHasil += data.toString().trim();
 
   if(data.toString().trim() === "+")
   {
@@ -74,7 +74,7 @@ serial1conn.on('data', function (data)
   }
 });
 
-console.log("Initialize Port 2")
+console.log("Initialize port 2")
 if(serial2conn.isOpen)
 {
   serial2conn.close(function (err)
@@ -82,11 +82,11 @@ if(serial2conn.isOpen)
     if (err)
     {
       global.strResultCom2 = "err";
-      return console.log('Closing port error -> ', err.message);
+      return console.log('Closing port 2 error -> ', err.message);
     }
 
     // Because there's no callback to write, write errors will be emitted on the port:
-    console.log("Closing port Success")
+    console.log("Closing port 2 success")
   });
 }
 
@@ -95,11 +95,11 @@ serial2conn.open(function (err)
   if (err)
   {
     global.strResultCom2 = "err";
-    return console.log('Opening port error -> ', err.message);
+    return console.log('Opening port 2 error -> ', err.message);
   }
 
   // Because there's no callback to write, write errors will be emitted on the port:
-  console.log("Opening port Success")
+  console.log("Opening port 2 success")
 });
 
 serial2conn.on('data', function (data)
