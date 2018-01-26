@@ -16,6 +16,14 @@ router.post('/timbangan', function(req, res)
 
   if(Warehouse === "kbns")
   {
+    if(JenisTimbang === 1)
+    {
+      if(global.strResultCom1 === "err" || global.strResultCom1 === "")
+        res.status(fixvalue.Kode.Error).json(fungsi.DataTimbangGagal);
+      else
+        res.status(fixvalue.Kode.OK).json(fungsi.DataTimbangSukses(global.strResultCom1.toString().replace(/B/g, "")));
+    }
+    else
     if(JenisTimbang === 2)
     {
       if(global.strResultCom2 === "err" || global.strResultCom2 === "")
@@ -37,10 +45,10 @@ router.post('/timbangan', function(req, res)
     else
     if(JenisTimbang === 2)
     {
-      if(global.strResultCom1 === "err" || global.strResultCom1 === "")
+      if(global.strResultCom2 === "err" || global.strResultCom2 === "")
         res.status(fixvalue.Kode.Error).json(fungsi.DataTimbangGagal());
       else
-        res.status(fixvalue.Kode.OK).json(fungsi.DataTimbangSukses(parseInt(global.strResultCom1.toString(), 10)));
+        res.status(fixvalue.Kode.OK).json(fungsi.DataTimbangSukses(parseInt(global.strResultCom2.toString(), 10)));
     }
   }
   else
